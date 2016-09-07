@@ -1,0 +1,434 @@
+/*
+Project: Country Hopping game
+Project URI: http://countries.jokedewinter.co.uk/
+Author: Joke De Winter Ltd
+Author URI: http://www.jokedewinter.co.uk
+Description: 10k Apart competition 2016
+Version: 1.0
+*/
+
+@import "colors";
+@import "mixins";
+
+/**
+ * ------------------------------------------------------------- 
+ * Site settings
+ * ------------------------------------------------------------- */
+
+* { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+	-webkit-text-size-adjust: 100%; 
+}
+
+html { font-size: 62.5%; }
+
+body {
+	line-height: 1.5;
+	background: $col-page;
+	color: $col-text;
+}
+	
+body, h2, h3, h4 { margin: 0; }
+article, footer, header, section { display: block; }
+
+/**
+ * ------------------------------------------------------------- 
+ * Typography
+ * ------------------------------------------------------------- */
+
+body, button { 
+	font-family: 'Trebuchet MS', sans-serif;
+	@include font-size(18);
+}
+
+h1 {
+	@include font-size(24);
+	line-height: 1.2;
+}
+
+header p { @include font-size(11); }
+h2, h3, li { @include font-size(16); }
+h4, li:last-of-type span { @include font-size(20); }
+.ch button { @include font-size(32); }
+.ch span, .ch p, footer p { @include font-size(14); }
+li:nth-of-type(1) span, li:nth-of-type(2) span { @include font-size(36); }
+
+h1, h2, h3, .ch button, .ag { letter-spacing: 2px; }
+header p { letter-spacing: 3px; }
+header p, li:last-of-type span { font-weight: bold; }
+.ch h2 { text-align: center; }
+h1, h2, h3, header p, .ch button, .ag { text-transform: uppercase; }
+
+header p, .ag { color: $col-text-reverse; }
+footer p { color: $col-text-light; }
+
+/**
+ * ------------------------------------------------------------- 
+ * Links
+ * ------------------------------------------------------------- */
+
+a {
+	color: inherit;
+	text-decoration: none;	
+}
+
+a, button { 
+	cursor: pointer; 
+	outline: none;
+	@include transition(all, 0.3s, ease-in-out);
+}
+
+button {
+	background: none;
+	border: none;
+	border-radius: 0px;
+	-webkit-appearance: none;
+	text-align: left;
+}
+
+.ch a { border-bottom: 2px solid $col-text; }
+footer a { border-bottom: 2px solid $col-text-light; }
+
+.ag {
+	background: $col-dark;
+	display: inline-block;
+	margin-top: 2em;
+	padding: 0.5em 1em;
+
+	&:hover { 
+		background: $col-light; 
+		color: $col-text;
+	}
+}
+
+.co a {
+	width: 40px;
+	height: 40px;
+	display: block;
+	text-align: center;
+	margin: 0.5em 0.5em 1em 0;
+	padding: 0.2em 2px 0 2px;
+	background: $col-light;		
+}
+
+.ch button {
+	width: 100%;
+	margin-bottom: 0.5em;
+	padding: 1em;
+	background: $col-light;
+	& span { display: block; }
+}
+
+.co button {
+	margin: 0.5em 1em 0.5em 0;
+	padding: 0.5em;
+	border: 1px dashed $col-border;
+}
+
+a:focus, button:focus { border: 2px dashed $col-main; }
+
+.ch a:hover,
+footer a:hover { 
+	border-bottom: 2px solid $col-border-dark; 
+	color: $col-border-dark;
+}
+
+.ch button:hover,
+.co a:hover,
+.co button:hover { background: $col-main; }
+
+/**
+ * ------------------------------------------------------------- 
+ * Structure
+ * ------------------------------------------------------------- */
+
+header, 
+.ini,
+.scfb  { background: $col-main; }
+
+header,
+.ini,
+.ch,
+.co,
+form,
+.sc,
+footer { padding: 1.5em 0 1em 0; }
+
+header div, 
+.ini div, 
+.ch,
+.co,
+footer {
+	width: 90%;
+	max-width: 65em;
+	margin: 0 auto;
+
+	&:after {
+		display: block;
+		content: "";
+		clear: both;
+	}
+}
+	
+.ini,
+.dia { position: relative; }
+
+.ini { z-index: 100; }
+.dia { z-index: 90; }
+
+.ini h2 {
+	width: 65%;
+	display: inline-block;
+}
+
+.dia {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 50px 0 0 100vw;
+	border-color: $col-main transparent transparent transparent;
+	transform: scale(1.0001);
+}
+
+/* Score card
+ * ------------------------------------------------------------- */
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	min-width: 10em;
+	display: inline-block;
+	padding-right: 5%;
+	line-height: 1.7;
+	
+	&:first-of-type { 
+		margin-right: 5%;
+		border-right: 1px solid $col-border; 
+	}
+		
+	span, 
+	&:last-of-type { display: block; }
+		
+	&:nth-of-type(1) span,
+	&:nth-of-type(2) span { color: $col-main; }
+	
+	&:last-of-type span { margin-bottom: 0.5em; }
+}
+
+li:last-of-type,
+.scfb { margin-top: 2em; }
+
+.scfb {
+	width: 100%;
+	float: left;
+	padding: 1em 1em 0 1em;
+}
+
+/* SVG choice
+ * ------------------------------------------------------------- */
+
+button[name="west"]:after,
+button[name="east"]:after {
+	content: '';
+	display: inline-block;
+	-webkit-mask-size: cover;
+	mask-size: cover;
+}
+
+button[name="west"]:after {
+	-webkit-mask: url('../svg/west.svg') no-repeat 100% 100%;
+	mask: url('../svg/west.svg') no-repeat 100% 100%;
+	width: 97px;
+	height: 134px;
+}
+
+button[name="east"]:after {
+	-webkit-mask: url('../svg/east.svg') no-repeat 100% 100%;
+	mask: url('../svg/east.svg') no-repeat 100% 100%;
+	width: 115px;
+	height: 125px;
+}
+
+/* SVG linking and lives
+ * ------------------------------------------------------------- */
+
+.ini svg {
+	float: right;
+	margin-top: -3em;
+}
+
+.ini p,
+li { position: relative; }
+
+.ini p { padding-left: 5em; }
+.ini p:last-of-type { padding-left: 3.5em; }
+
+.ini p:before,
+li:after {
+	content: '';
+	display: inline-block;
+	-webkit-mask-size: cover;
+	mask-size: cover;
+	position: absolute;
+}
+
+.ini p:before {
+	margin-right: 0.5em;	
+	top: 0.5em;
+	left: 0;
+}
+
+li:after { left: 2em; }
+li:first-of-type:after { top: 0.5em; }
+li:nth-of-type(2):after { top:  0.1em; }
+
+.ini p:first-of-type:before,
+li:first-of-type:after {
+	-webkit-mask: url('../svg/link.svg') no-repeat 100% 100%;
+	mask: url('../svg/link.svg') no-repeat 100% 100%;
+	width: 82px;
+	height: 34px;
+}
+
+.ini p:last-of-type:before,
+li:nth-of-type(2):after {
+	-webkit-mask: url('../svg/lives.svg') no-repeat 100% 100%;
+	mask: url('../svg/lives.svg') no-repeat 100% 100%;
+	width: 46px;
+	height: 57px;
+}
+
+.ini p:first-of-type:before,
+.ini p:last-of-type:before { background-color: $col-page; }
+
+li:first-of-type:after,
+li:nth-of-type(2):after { background-color: $col-text; }
+
+/**
+ * ------------------------------------------------------------- 
+ * Media queries
+ * ------------------------------------------------------------- */
+
+@media screen and ( max-width: 599px ) {
+	
+	button[name="west"]:after,
+	button[name="east"]:after {
+		background-color: $col-text;
+		float: right;
+		margin-top: -2em;
+	}
+
+	.co div {
+		height: 0;
+		overflow: hidden;
+	}
+
+	.co a {
+		float: left;
+		
+		/* The chosen letter */
+		&:target {
+			clear: left;
+			width: 100%;
+			margin: 0.5em 0;
+			padding: 0.3em;
+			background: $col-main;
+		}
+	
+		/* The countries belonging to that letter */
+		&:target + div {
+			width: 100%;
+			height: auto;
+			margin: 0 0 1em 0;
+			padding-bottom: 1em;
+			border-bottom: 1px solid $col-border;
+		}
+	}
+	
+}
+
+@media screen and ( min-width: 600px ) {
+	
+	.ini p {
+		float: left;
+		width: 47.5%;
+		&:first-of-type { margin-right: 5%; }
+	}
+
+	.ch form {
+		position: relative;
+		height: 17em;
+		margin-top: 2em;
+	}
+
+	.wo {
+		width: 15em;
+		height: 15em;
+		border-radius: 50%;
+		background: $col-main;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		z-index: 90;
+	}
+
+	.ch button {
+		width: 49%;
+		height: 5.5em;
+		float: left;
+		padding: 1em;
+		margin-top: 0.7em;
+
+		&:first-of-type { 
+			margin-right: 2%; 
+			padding-right: 0.1em;
+			text-align: right;
+			div { margin-right: 5em; }
+		}
+
+		&:last-of-type { 
+			padding-left: 0.1em; 
+			div { margin-left: 5em; }
+		}
+		
+		position: relative;
+		z-index: 100;
+		
+		background: rgba(0, 0, 0, 0.1);
+	}
+	
+	button[name="west"]:after,
+	button[name="east"]:after {
+		background-color: $col-text;
+		margin-top: -2em;
+	}
+
+	button[name="west"]:after { float: right; }
+	button[name="east"]:after { float: left; }
+
+
+	.sc ul { display: flex; }
+
+	.co button { display: block; }
+	
+	.co article,
+	li:last-of-type { display: inline-block; }
+	
+	.co article {
+		vertical-align: top;
+		margin: 0 1em 1em 0;
+	}
+	
+	li:last-of-type {
+		border-left: 1px solid $col-border;
+		margin: -0.1em 0 0 0;
+		padding: 0 0 0 5%;
+	}
+}
