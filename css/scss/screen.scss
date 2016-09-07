@@ -158,8 +158,7 @@ footer { padding: 1.5em 0 1em 0; }
 
 header div, 
 .ini div, 
-.ch,
-.co,
+section:not(:first-of-type), 
 footer {
 	width: 90%;
 	max-width: 65em;
