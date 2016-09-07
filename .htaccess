@@ -1,0 +1,17 @@
+# compress text, html, javascript, css, xml:
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE image/x-icon
+                   
+# Enable expirations
+ExpiresActive On
+ 
+# Specify expire time by file type
+ExpiresByType text/css "access 1 month"
+ExpiresByType image/x-icon "access 1 month"
+ExpiresByType image/svg+xml "access 1 month"
+
+# Set default expire time
+ExpiresDefault "access 2 days"
