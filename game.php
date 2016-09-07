@@ -13,8 +13,14 @@ include('header.php');
 <?php
 
 // List countries available to choose
+global $continue;
+$continue = true;
+
 choose_country();
-?>
+
+// Only show the country buttons when the game is still going
+if ( $continue ) :
+	?>
 <section class="co">
 	<h3>Choose a country</h3>
 	<form action="#header" method="post">
@@ -46,4 +52,7 @@ $current_letter = 'A';
 		</article>
 	</form>
 </section>
-<?php include('footer.php'); ?>
+<?php 
+endif;
+
+include('footer.php'); ?>

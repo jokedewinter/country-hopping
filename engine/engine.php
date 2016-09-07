@@ -109,6 +109,8 @@ function score_card( $title, $feedback ) {
 
 function choose_country() {
 
+global $continue;
+
 	// Catch the choice
 	// Loop through all the countries left to choose from
 	// Then check if that country was selected
@@ -190,14 +192,12 @@ function choose_country() {
 				// Game over: dead end
 				// Show the final score
 				score_card( 'Game over', 'dead-end' );
-				exit();
 
 			else :
 
 				// Game over: no lives left
 				// Show the final score
 				score_card( 'Game over', 'no-lives' );
-				exit();
 
 			endif;
 
