@@ -323,25 +323,25 @@ li:nth-of-type(2):after {
 
 .ini p:first-of-type:before,
 li:first-of-type:after {
-  -webkit-mask: url("../svg/link.svg") no-repeat 100% 100%;
-  mask: url("../svg/link.svg") no-repeat 100% 100%;
   width: 82px;
   height: 34px; }
 
 .ini p:last-of-type:before,
 li:nth-of-type(2):after {
-  -webkit-mask: url("../svg/lives.svg") no-repeat 100% 100%;
-  mask: url("../svg/lives.svg") no-repeat 100% 100%;
   width: 46px;
   height: 57px; }
 
-.ini p:first-of-type:before,
-.ini p:last-of-type:before {
-  background-color: #fff; }
+.ini p:first-of-type:before {
+  background: url("../svg/link.svg") no-repeat; }
 
-li:first-of-type:after,
+.ini p:last-of-type:before {
+  background: url("../svg/lives.svg") no-repeat; }
+
+li:first-of-type:after {
+  background: url("../svg/link-dark.svg") no-repeat; }
+
 li:nth-of-type(2):after {
-  background-color: #333; }
+  background: url("../svg/lives-dark.svg") no-repeat; }
 
 /**
  * ------------------------------------------------------------- 
