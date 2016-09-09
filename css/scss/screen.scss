@@ -240,20 +240,17 @@ button[name="west"]:after,
 button[name="east"]:after {
 	content: '';
 	display: inline-block;
-	-webkit-mask-size: cover;
-	mask-size: cover;
+	margin-top: -2em; 
 }
 
 button[name="west"]:after {
-	-webkit-mask: url('../svg/west.svg') no-repeat 100% 100%;
-	mask: url('../svg/west.svg') no-repeat 100% 100%;
+	background: url('../svg/west-dark.svg') no-repeat;
 	width: 97px;
 	height: 134px;
 }
 
 button[name="east"]:after {
-	-webkit-mask: url('../svg/east.svg') no-repeat 100% 100%;
-	mask: url('../svg/east.svg') no-repeat 100% 100%;
+	background: url('../svg/east-dark.svg') no-repeat;
 	width: 115px;
 	height: 125px;
 }
@@ -317,11 +314,7 @@ li:nth-of-type(2):after { background: url('../svg/lives-dark.svg') no-repeat; }
 @media screen and ( max-width: 599px ) {
 	
 	button[name="west"]:after,
-	button[name="east"]:after {
-		background-color: $col-text;
-		float: right;
-		margin-top: -2em;
-	}
+	button[name="east"]:after { float: right; }
 
 	.co div {
 		height: 0;
@@ -404,15 +397,8 @@ li:nth-of-type(2):after { background: url('../svg/lives-dark.svg') no-repeat; }
 		background: rgba(0, 0, 0, 0.1);
 	}
 	
-	button[name="west"]:after,
-	button[name="east"]:after {
-		background-color: $col-text;
-		margin-top: -2em;
-	}
-
 	button[name="west"]:after { float: right; }
 	button[name="east"]:after { float: left; }
-
 
 	.sc ul { display: flex; }
 
