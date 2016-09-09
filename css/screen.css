@@ -145,7 +145,8 @@ footer a {
   text-align: center;
   margin: 0.5em 0.5em 1em 0;
   padding: 0.2em 2px 0 2px;
-  background: #ddd; }
+  background: #333;
+  color: #fff; }
 
 .ch button {
   width: 100%;
