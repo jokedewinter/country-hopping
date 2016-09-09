@@ -28,28 +28,19 @@ if ( $continue ) :
 // Split up the countries into first letter sections
 $current_letter = 'A';
 ?>
-		<article>
-			<a id="<?php echo $current_letter; ?>" href="#<?php echo $current_letter; ?>"><h4><?php echo $current_letter; ?></h4></a>
-			<div>
-			<?php
-			foreach ( $_SESSION['countries_left'] as $key => $left ) :
-				if ( $left['n'][0] != $current_letter ) :
-					?>
-			</div>
-		</article>
-		<article>
-			<a id="<?php echo $left['n'][0]; ?>" href="#<?php echo $left['n'][0]; ?>"><h4><?php echo $left['n'][0]; ?></h4></a>
-			<div>
-			<?php
-					$current_letter = $left['n'][0];
-				endif;
-				?>
-				<button name="<?php echo $key; ?>" value="<?php echo $key; ?>"><?php echo $left['n']; ?></button>
-				<?php
-			endforeach;
-			?>
-			</div>
-		</article>
+		<article><a id="<?php echo $current_letter; ?>" href="#<?php echo $current_letter; ?>"><h4><?php echo $current_letter; ?></h4></a><div><?php
+		
+		foreach ( $_SESSION['countries_left'] as $key => $left ) :
+			if ( $left['n'][0] != $current_letter ) :
+				
+				?></div></article>
+		<article><a id="<?php echo $left['n'][0]; ?>" href="#<?php echo $left['n'][0]; ?>"><h4><?php echo $left['n'][0]; ?></h4></a><div><?php
+				
+				$current_letter = $left['n'][0];
+			endif;
+			?><button name="<?php echo $key; ?>" value="<?php echo $key; ?>"><?php echo $left['n']; ?></button><?php
+		endforeach;
+		?></div></article>
 	</form>
 </section>
 <?php 
