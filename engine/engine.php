@@ -65,7 +65,7 @@ function score_card( $title, $feedback ) {
 		if (( 'dead-end' == $feedback ) || ( 'no-lives' == $feedback )) :
 			?>
 			<div class="scfb">
-				<?php
+				<?php				
 				switch ( $feedback ) :
 
 					case 'dead-end' :
@@ -87,6 +87,40 @@ function score_card( $title, $feedback ) {
 				endswitch;
 				?>
 			</div>
+			<?php
+			// Was it a decent score?
+			if ( 9 < count($_SESSION['countries_picked_names']) ) :
+				?>
+				<div class="scre">
+					<?php
+					if (( 22 == count($_SESSION['countries_picked_names']) ) && ( 'west' == $_SESSION['choice'] )) :
+						?>
+						<h2>Awesome score!</h2>
+						<p>You got the maximium amount of countries you can link in this part of the world.</p>
+						<?php
+					elseif ( 15 > count($_SESSION['countries_picked_names']) ) :
+						?>
+						<h2>Pretty decent effort</h2>
+						<?php
+					elseif ( 20 > count($_SESSION['countries_picked_names']) ) :
+						?>
+						<h2>Impressive journey</h2>
+						<?php
+					elseif ( 30 < count($_SESSION['countries_picked_names']) ) :
+						?>
+						<h2>Amazing knowledge of the world</h2>
+						<?php
+					else :
+						?>
+						<h2>Just marvelous</h2>
+						<p>Did you have Google Maps open on the side, or are you really that clever?</p>
+						<?php
+					endif;
+					?>
+				</div>
+				<?php
+			endif;
+			?>
 			<a class="ag" href="index.php">Play again?</a>
 			<?php
 		elseif ( '' != $feedback ) :

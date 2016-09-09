@@ -228,6 +228,10 @@ footer {
   border-color: #ffc107 transparent transparent transparent;
   transform: scale(1.0001); }
 
+.scre {
+  clear: both;
+  padding-top: 2em; }
+
 /* Score card
  * ------------------------------------------------------------- */
 ul {
