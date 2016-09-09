@@ -239,7 +239,7 @@ ul {
   padding: 0; }
 
 li {
-  min-width: 10em;
+  min-width: 8em;
   display: inline-block;
   padding-right: 5%;
   line-height: 1.7; }
@@ -310,7 +310,7 @@ li:after {
   left: 0; }
 
 li:after {
-  left: 3em; }
+  left: 2.4em; }
 
 li:first-of-type:after {
   top: 0.5em; }
@@ -345,6 +345,9 @@ li:nth-of-type(2):after {
  * Media queries
  * ------------------------------------------------------------- */
 @media screen and (max-width: 599px) {
+  .ch div {
+    width: 55%; }
+
   button[name="west"]:after,
   button[name="east"]:after {
     float: right; }
