@@ -23,7 +23,7 @@ if ( $continue ) :
 	?>
 <section class="co">
 	<h3>Choose a country</h3>
-	<form action="#header" method="post">
+	<form action="#score" method="post">
 <?php
 // Split up the countries into first letter sections
 $current_letter = 'A';

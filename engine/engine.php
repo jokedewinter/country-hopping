@@ -48,7 +48,7 @@ Not sure why you would do that, but anyway, it's a bit stupid, so hence the if i
 
 function score_card( $title, $feedback ) {
 	?>
-	<section class="sc">
+	<section id="score" class="sc">
 		<h3><?php echo $title; ?></h3>
 		<ul>
 			<li><span><?php echo count($_SESSION['countries_picked_names']); ?></span> countr<?php if ( 1 == count($_SESSION['countries_picked_names']) ) { echo "y"; } else { echo "ies"; } ?> linked</li>
@@ -95,7 +95,7 @@ function score_card( $title, $feedback ) {
 					<?php
 					if (( 22 == count($_SESSION['countries_picked_names']) ) && ( 'west' == $_SESSION['choice'] )) :
 						?>
-						<h2>Awesome score!</h2>
+						<h2>But what an awesome score!</h2>
 						<p>You got the maximium amount of countries you can link in this part of the world.</p>
 						<?php
 					elseif ( 15 > count($_SESSION['countries_picked_names']) ) :

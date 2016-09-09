@@ -21,7 +21,7 @@ ob_start(); // ensures anything dumped out will be caught
 	<link rel="stylesheet" href="css/screen.min.css">
 </head>
 <body>
-<header id="header" role="banner">
+<header role="banner">
 	<div>
 		<h1>Country hopping</h1>
 		<p>linking bordering countries</p>
