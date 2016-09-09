@@ -196,7 +196,7 @@ header div,
 section:not(:first-of-type),
 footer {
   width: 90%;
-  max-width: 65em;
+  /* max-width: 65em; */
   margin: 0 auto; }
   header div:after,
   .ini div:after,
